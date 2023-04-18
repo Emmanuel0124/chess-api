@@ -8,4 +8,12 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
     data = JSON.parse(response.body)
     assert_equal Game.count, data.length
   end
+
+  test "create" do
+    assert_difference "Game.count", 1 do
+      post "/games.json", params: { name: "lake", width: 800, height: 600 }
+      assert_response 200
+    end
+  end
+
 end
