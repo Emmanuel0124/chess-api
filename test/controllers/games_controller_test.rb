@@ -16,4 +16,12 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "show" do
+    get "/games/#{Game.first.id}.json"
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal ["id", "winner", "ending", "pgn", "pgn_image", "created_at", "updated_at"], data.keys
+  end
+
 end
