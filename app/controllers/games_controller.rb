@@ -1,7 +1,9 @@
 class GamesController < ApplicationController
   def index
     @games = Game.all
-    render :index
+    # render json: {message: "game" }
+    web_request = HTTP.get("https://api.chess.com/pub/player/manny7100/games/2023/04").parse(:json)
+    render json: web_request
   end 
   def create 
     @game = Game.create(
