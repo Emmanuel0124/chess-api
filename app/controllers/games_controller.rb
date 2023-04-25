@@ -18,4 +18,15 @@ class GamesController < ApplicationController
     render :show
   end
 
+  def update 
+    @game = Game.find_by(id: params[:id])
+    @game.update(
+      result: params[:result],
+      winner: params[:winner],
+      image_url: params[:image_url],
+    )
+    render :show
+  end
+
+
 end
