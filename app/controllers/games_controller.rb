@@ -4,6 +4,11 @@ class GamesController < ApplicationController
     render :index
   end
 
+  def show 
+    @game = Game.find_by(id: params[:id])
+    render :show 
+  end
+
   def create
     @game = Game.create(
       result: params[:result],
