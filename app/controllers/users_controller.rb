@@ -10,5 +10,14 @@ class UsersController < ApplicationController
     )
     render :show
   end
+  def update
+    @user = User.find_by(id: params[:id])
+    @user.update(
+      name: params[:name],
+      email: params[:email],
+    )
+    render :show
+  end
+
 
 end
