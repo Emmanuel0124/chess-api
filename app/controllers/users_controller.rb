@@ -3,5 +3,12 @@ class UsersController < ApplicationController
     @users = User.all
     render :index 
   end
+  def create
+    @user = User.create(
+      name: params[:name],
+      email: params[:email],
+    )
+    render :show
+  end
 
 end
