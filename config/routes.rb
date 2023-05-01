@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :games
+  
+  post "/sessions" => "sessions#create"
 
   # get "/users" => "users#index"
   # post "/users" => "users#create"
